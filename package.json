@@ -1,0 +1,71 @@
+{
+  "name": "dart-color-switcher",
+  "displayName": "Dart Color Switcher",
+  "description": "Convert Dart Color formats (int, hex, ARGB) with ease.",
+  "version": "0.0.1",
+  "publisher": "itisnajim",
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Formatters",
+    "Snippets"
+  ],
+  "keywords": [
+    "Dart",
+    "Flutter",
+    "Color",
+    "Convert",
+    "Converter",
+    "HEX",
+    "ARGB"
+  ],
+  "activationEvents": [
+    "onLanguage:dart",
+    "onCodeActionProvider:quickfix.dartColorSwitcher"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "dartColorSwitcher.switch",
+        "title": "Convert Integer to Dart Hex Color"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "dartColorSwitcher.switch",
+        "key": "shift+ctrl+h",
+        "mac": "shift+cmd+h",
+        "when": "editorTextFocus && editorLangId == dart"
+      }
+    ],
+    "codeActions": [
+      {
+        "languages": [
+          "dart"
+        ],
+        "kind": "quickfix"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.94.0",
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.10.0",
+    "@typescript-eslint/parser": "^8.7.0",
+    "eslint": "^9.13.0",
+    "typescript": "^5.6.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
